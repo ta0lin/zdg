@@ -1,0 +1,81 @@
+.policy-container,.personal-container {
+    width: 1200px;
+    margin: 0 auto;
+    height: auto;
+}
+/*政策列表页样式*/
+.policy-select-block{
+    padding:28px 0 62px 0;
+    box-sizing: border-box;
+    border-top:1px solid rgba(221, 221, 221, 1);
+    border-bottom:1px solid rgba(221, 221, 221, 1);
+}
+.policy-select-block ul {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    zoom: 1;
+    border-bottom: 1px dashed rgba(221, 221, 221, 1);
+    padding:18px 0 20px 0;
+    box-sizing: border-box;
+}
+.policy-select-block ul:last-child{
+    border-bottom: none;
+}
+.policy-select-block .choosedTitle {
+    width: 75px;
+    height: 40px;
+    text-align: left;
+    line-height: 27px;
+    font-size: 14px;
+    color: #666;
+    float: left;
+}
+.policy-select-block ul .loadMore {
+    position: absolute;
+    width: 67px;
+    height: 38px;
+    line-height: 27px;
+    text-align: center;
+    font-size: 14px;
+    color: #4f89f5;
+    display: block;
+    z-index: 10;
+    right: 30px;
+    top: 0;
+}
+.policy-select-block ul .loadMore:after {
+    content: "";
+    width: 12px;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    transition: all .3s;
+    background-image: url('../images/down.png');
+    background-repeat: no-repeat;
+}
+.policy-select-block .choosedContent {
+    width: 970px;
+}
+.policy-select-block ul:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.policy-select-block .choosedContent a.active {
+    background: #2FB6EB;
+    border-radius: 15px;
+    color: #fff;
+}
+.choosedContent .slect-filter, .choosedContent a, .choosedContent span {
+    float: left;
+    font-size: 14px;
+    color: #333;
+    padding: 0 5px;
+    margin: 2px 8px 5px;
+    cursor: pointer;
+    line-height: 24px;
+}
