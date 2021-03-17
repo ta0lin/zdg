@@ -152,7 +152,6 @@
 }
 .nav-ul{
     float:right;
-    margin-right: 40px;
 }
 .nav-ul>ul li{
     float:left;
@@ -163,6 +162,9 @@
     margin-right: 20px;
     cursor: pointer;
     position: relative;
+}
+.nav-ul>ul li a , .nav-ul>ul li a:hover{
+    color:#ffffff;
 }
 .personal{
     float: right;
