@@ -34,7 +34,7 @@
     font-weight: bold;
     color: #FFFFFF;
 }
-.footer-content li{
+.footer-content li , .footer-content li a{
     margin-bottom: 14px;
     color:#fff
 }
