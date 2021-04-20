@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/policyList.css">
-    <link rel="stylesheet" href="css/zxf_page.css">
+    <link rel="stylesheet" href="css/pagination.css">
 </head>
 <body>
 <div class="policy-container">
@@ -368,8 +368,11 @@
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/zxf_page.js"></script>
+<script src="js/pagination.js"></script>
 <script src="js/mutual.js"></script>
+<script src="js/common.js"></script>
+<script src="js/coco-message.js"></script>
+
 <script>
     var val =  GetQueryString("search");
     function select(){
@@ -391,9 +394,8 @@
         }
         ajax(params);
     }
-    selectdata(val==''?'公司':val)
+    selectdata(decodeURIComponent(val)==''?'公司':decodeURIComponent(val))
     $('input[name="test"]').change(function () {
-        console.log($(this).val());
         if ($(this).val()==2){
             window.location.href="/zdg/policyList.html"
         }

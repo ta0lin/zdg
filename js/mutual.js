@@ -21,7 +21,11 @@ function ajax(params) {
                 result = response.object;
             }
         }
+        else{
+            cocoMessage.error("网络异常！", 2000);
+        }
     }).fail(function (jqXHR, textStatus, err) {
+        cocoMessage.error("网络异常！", 2000);
     });
     if (!params.callback) {
         return result;
@@ -44,27 +48,31 @@ function selectZC(data) {
             '                    <td>' + data.list[i].peNameText + '</td>' +
             '                </tr>'
     }
-    $(".zxf_pagediv").createPage({
-        pageNum: data.pageSize,
-        current: data.currPage,
-        num: data.totalCount,
-        select: 3,
-        backfun: function (e) {
-            console.log(4444)
-            var params = {
-                url: '/zhengce/list',
-                data: {
-                    'pageNo': e.current,
-                    'pageSize': 10,
-                    'keyword': $("#search").val() == '' ? GetQueryString("search")==''?'高企': GetQueryString("search"): $("#search").val(),
-                    'condition': '{"searchScope":7}'
-                },
-                type: 'get',
-                contentType: 'application/json;charset=utf-8',
-                callback: selectZC,
-                async: true
-            }
-            ajax(params);
+    new Pagination({
+        element: '.zxf_pagediv',
+        type: 2,
+        pageIndex: data.currPage,
+        pageSize: data.pageSize,
+        pageCount: 9,
+        total: data.totalCount,
+        jumper: true,
+        singlePageHide: false,
+        disabled: true,
+        currentChange: function(index) {
+                    var params = {
+                        url: '/zhengce/list',
+                        data: {
+                            'pageNo': index,
+                            'pageSize': 10,
+                            'keyword': $("#search").val() == '' ? decodeURIComponent(GetQueryString("search")) == '' ? '高企' : decodeURIComponent(GetQueryString("search")) : $("#search").val(),
+                            'condition': '{"searchScope":7}'
+                        },
+                        type: 'get',
+                        contentType: 'application/json;charset=utf-8',
+                        callback: selectZC,
+                        async: true
+                    }
+                    ajax(params);
         }
     });
     $("#policttable").append(str)
@@ -76,7 +84,6 @@ function selectQY(data) {
     re = new RegExp("<em>", "g");
     re1 = new RegExp("</em>", "g");
     data.list.forEach(function (item) {
-        console.log(item.id);
         str += ' <div class="qiye-item">' +
             '                <div class="info-left">' +
             '                    <a href="detail2.html?id=' + item.id + '&up=' + item.up + '&gaoxin=' + item.gaoxin + '">' +
@@ -141,18 +148,23 @@ function selectQY(data) {
     })
     $(".contents").prepend(str)
     $("#count").text(data.totalCount)
-    $(".zxf_pagediv").createPage({
-        pageNum: data.pageSize,
-        current: data.currPage,
-        num: data.totalCount,
-        select: 3,
-        backfun: function (e) {
+    new Pagination({
+        element: '.zxf_pagediv',
+        type: 2,
+        pageIndex: data.currPage,
+        pageSize: data.pageSize,
+        pageCount: 9,
+        total: data.totalCount,
+        jumper: true,
+        singlePageHide: false,
+        disabled: true,
+        currentChange: function(index) {
             var params = {
                 url: '/qiye/list',
                 data: {
-                    'pageNo': e.current,
+                    'pageNo': index,
                     'pageSize': 10,
-                    'keyword': $("#selectbar").val() ==''?'公司':$("#selectbar").val(),
+                    'keyword': $("#selectbar").val() == '' ? decodeURIComponent(GetQueryString("search")) == '' ? '公司' : decodeURIComponent(GetQueryString("search")) : $("#selectbar").val(),
                     'condition': '{"searchScope":1}'
                 },
                 type: 'get',
@@ -220,12 +232,30 @@ function selectQYzz(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv1").createPage({
-            pageNum: 1,
-            current: 10,
-            num: data.totalCount,
-            backfun: function (e) {
-                //console.log(e);//回调
+        new Pagination({
+            element: '.zxf_pagediv',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
+                var p ={
+                    url: '/qiye/qualifications',
+                    data: {
+                        'entId': GetQueryString("id"),
+                        'pageNo':index,
+                        'pageSize':10
+                    },
+                    type: 'get',
+                    contentType: 'application/json;charset=utf-8',
+                    callback: selectQYzz,
+                    async: true
+                }
+                ajax(p);
             }
         });
     }
@@ -249,17 +279,21 @@ function selectQYsb(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv2").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
-                console.log(e.current);
+        new Pagination({
+            element: '.zxf_pagediv2',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/brand',
                     data: {
-                        'pageNo': e.current,
+                        'pageNo': index,
                         'pageSize': 10,
                         'entId': GetQueryString("id")
                     },
@@ -288,17 +322,21 @@ function selectQYzl(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv3").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
-                console.log(e.current);
+        new Pagination({
+            element: '.zxf_pagediv3',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/patent',
                     data: {
-                        'pageNo': e.current,
+                        'pageNo': index,
                         'pageSize': 10,
                         'entId': GetQueryString("id")
                     },
@@ -329,16 +367,22 @@ function selectQYrj(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv4").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
+
+        new Pagination({
+            element: '.zxf_pagediv4',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/softCopyRight',
                     data: {
-                        'pageNo': e.current,
+                        'pageNo': index,
                         'pageSize': 10,
                         'entId': GetQueryString("id")
                     },
@@ -368,16 +412,21 @@ function selectproduct(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv5").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
+        new Pagination({
+            element: '.zxf_pagediv5',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/productCopyRight',
                     data: {
-                        'pageNo': e.current,
+                        'pageNo': index,
                         'pageSize': 10,
                         'entId': GetQueryString("id")
                     },
@@ -390,7 +439,6 @@ function selectproduct(data) {
             }
         });
     }
-
     $("#producttable").append(str)
 }
 
@@ -407,16 +455,21 @@ function investment(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv6").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
+        new Pagination({
+            element: '.zxf_pagediv6',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/investment',
                     data: {
-                        'pageNo': e.current,
+                        'pageNo': index,
                         'pageSize': 10,
                         'entId': GetQueryString("id")
                     },
@@ -446,12 +499,17 @@ function financing(data) {
             '                    </tr>'
     }
     if (data.totalCount > 10) {
-        $(".zxf_pagediv7").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
+        new Pagination({
+            element: '.zxf_pagediv7',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
                 var params = {
                     url: '/qiye/financing',
                     data: {
@@ -474,8 +532,6 @@ function financing(data) {
 function selectSB(data) {
     $(".contents").text('');
     var str = '';
-    // re=new RegExp("<em>","g");
-    // re1=new RegExp("</em>","g");
     data.list.forEach(function (item) {
         str += '            <div class="content-item">' +
             '                <div class="info-left">' +
@@ -511,18 +567,23 @@ function selectSB(data) {
     })
     $(".contents").prepend(str)
     $("#count").text(data.totalCount)
-    $(".zxf_pagediv").createPage({
-        pageNum: data.pageSize,
-        current: data.currPage,
-        num: data.totalCount,
-        select: 3,
-        backfun: function (e) {
+    new Pagination({
+        element: '.zxf_pagediv',
+        type: 2,
+        pageIndex: data.currPage,
+        pageSize: data.pageSize,
+        pageCount: 9,
+        total: data.totalCount,
+        jumper: true,
+        singlePageHide: false,
+        disabled: true,
+        currentChange: function(index) {
             var params = {
                 url: '/shangbiao/list',
                 data: {
-                    'pageNo': e.current,
+                    'pageNo': index,
                     'pageSize': 10,
-                    'keyword': $("#selectbar").val() == '' ? '公司' : $("#selectbar").val(),
+                    'keyword': $("#selectbar").val() == '' ? decodeURIComponent(GetQueryString("search")) == '' ? '公司' : decodeURIComponent(GetQueryString("search")) : $("#selectbar").val(),
                 },
                 type: 'get',
                 contentType: 'application/json;charset=utf-8',
@@ -532,7 +593,6 @@ function selectSB(data) {
             ajax(params);
         }
     });
-
 }
 
 function selectList(data) {
@@ -542,7 +602,7 @@ function selectList(data) {
         $(".plist").text('')
         $('.nodata').hide();
         var str = '';
-        console.log(sessionStorage.getItem('li'),'666')
+        console.log(sessionStorage.getItem('li'), '666')
         for (var i = 0; i < data.list.length; i++) {
             str += '<li>';
             if (sessionStorage.getItem('li') == 1) {
@@ -562,7 +622,7 @@ function selectList(data) {
             } else {
                 str += '<p class="ellipsis"><a href="banquanDetail.html?id=' + data.list[i].id + '">' + data.list[i].name + '</a></p>';
             }
-            str +=     '                        <p><span>￥</span>' + data.list[i].price + '<span>元起</span></p>' +
+            str += '                        <p><span>￥</span>' + data.list[i].price + '<span>元起</span></p>' +
                 '                        <p><span>￥</span>' + data.list[i].sale + '<span>元起</span>' +
                 '                        <hr class="line">' +
                 '                        <a href="javascript:void(0)" class="a">' +
@@ -572,6 +632,33 @@ function selectList(data) {
                 '                </li>'
         }
         $(".plist").append(str)
+        new Pagination({
+            element: '.zxf_pagediv',
+            type: 2,
+            pageIndex: data.currPage,
+            pageSize: data.pageSize,
+            pageCount: 9,
+            total: data.totalCount,
+            jumper: true,
+            singlePageHide: false,
+            disabled: true,
+            currentChange: function(index) {
+                var params = {
+                    url: '/product/goods',
+                    data: {
+                        'parentId':sessionStorage.getItem("li"),
+                        'pageNo':index,
+                        'pageSize':data.pageSize
+                    },
+                    type: 'get',
+                    contentType: 'application/json;charset=utf-8',
+                    callback: selectList,
+                    async: true
+                }
+                ajax(params);
+            }
+        });
+
         $(".zxf_pagediv").createPage({
             pageNum: data.pageSize,
             current: data.currPage,
@@ -688,16 +775,21 @@ function selectZGTZC(data) {
             '                    <td>' + data.list[i].peNameText + '</td>' +
             '                </tr>'
     }
-    $(".zxf_pagediv").createPage({
-        pageNum: data.pageSize,
-        current: data.currPage,
-        num: data.totalCount,
-        select: 3,
-        backfun: function (e) {
+    new Pagination({
+        element: '.zxf_pagediv',
+        type: 2,
+        pageIndex: data.currPage,
+        pageSize: data.pageSize,
+        pageCount: 9,
+        total: data.totalCount,
+        jumper: true,
+        singlePageHide: false,
+        disabled: true,
+        currentChange: function(index) {
             var params = {
                 url: '/zhengce/list',
                 data: {
-                    'pageNo': e.current,
+                    'pageNo': index,
                     'pageSize': 10,
                     'keyword': $(".search").val() == '' ? '高企' : $(".search").val(),
                     'condition': '{"searchScope":7}'
@@ -729,23 +821,28 @@ function selectzgtQY(data) {
             '                    <td>' + data.list[i].entName + '</td>' +
             '                </tr>'
     }
-    $(".zxf_pagediv").createPage({
-        pageNum: data.pageSize,
-        current: data.currPage,
-        num: data.totalCount,
-        select: 3,
-        backfun: function (e) {
+    new Pagination({
+        element: '.zxf_pagediv',
+        type: 2,
+        pageIndex: data.currPage,
+        pageSize: data.pageSize,
+        pageCount: 9,
+        total: data.totalCount,
+        jumper: true,
+        singlePageHide: false,
+        disabled: true,
+        currentChange: function(index) {
             var params = {
-                url: '/zhengce/list',
+                url: '/qiye/list',
                 data: {
-                    'pageNo': e.current,
+                    'pageNo': index,
                     'pageSize': 10,
-                    'keyword': $(".search").val() == '' ? '高企' : $(".search").val(),
-                    'condition': '{"searchScope":7}'
+                    'keyword': $("#search").val()==''?'公司':$("#search").val(),
+                    'condition': '{"searchScope":1}'
                 },
                 type: 'get',
                 contentType: 'application/json;charset=utf-8',
-                callback: selectZGTZC,
+                callback: selectzgtQY,
                 async: true
             }
             ajax(params);
@@ -753,63 +850,37 @@ function selectzgtQY(data) {
     });
     $("#policttable").append(str)
 }
-function selectListindex(data){
-    if (data.list.length == 0) {
-        $('.nodata').show();
-    } else {
-        $(".plist").text('')
-        $('.nodata').hide();
-        var str = '';
-        for (var i = 0; i < data.list.length; i++) {
-            str += '<li>';
-            if (sessionStorage.getItem('li') == 1) {
-                str += '<a href="productDetail.html?id=' + data.list[i].id + '">';
-            } else if (sessionStorage.getItem('li') == 2) {
-                str += '<a href="zhuanliDetail.html?id=' + data.list[i].id + '">';
-            } else {
-                str += '<a href="banquanDetail.html?id=' + data.list[i].id + '">';
-            }
-            str += '                    <img class="head" src="images/productDetail/zc.png" alt="">' +
-                '                    </a>' +
-                '                    <div class="txt-wrap">';
-            if (sessionStorage.getItem('li') == 1) {
-                str += '<p class="ellipsis"><a href="productDetail.html?id=' + data.list[i].id + '">' + data.list[i].name + '</a></p>';
-            } else if (sessionStorage.getItem('li') == 2) {
-                str += '<p class="ellipsis"><a href="zhuanliDetail.html?id=' + data.list[i].id + '">' + data.list[i].name + '</a></p>';
-            } else {
-                str += '<p class="ellipsis"><a href="banquanDetail.html?id=' + data.list[i].id + '">' + data.list[i].name + '</a></p>';
-            }
-            str +=     '                        <p><span>￥</span>' + data.list[i].price + '<span>元起</span></p>' +
-                '                        <p><span>￥</span>' + data.list[i].sale + '<span>元起</span>' +
-                '                        <hr class="line">' +
-                '                        <a href="javascript:void(0)" class="a">' +
-                '                            <img src="images/productDetail/zxButton.png" alt="">' +
-                '                        </a>' +
-                '                    </div>' +
-                '                </li>'
-        }
-        $(".plist").append(str)
-        $(".zxf_pagediv").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
-                var params = {
-                    url: '/shangbiao/list',
-                    data: {
-                        'pageNo': e.current,
-                        'pageSize': 10,
-                        'keyword': $("#selectbar").val() == '' ? '公司' : $("#selectbar").val(),
-                    },
-                    type: 'get',
-                    contentType: 'application/json;charset=utf-8',
-                    callback: selectSB,
-                    async: true
-                }
-                ajax(params);
-            }
-        });
-    }
 
+function selectListindex(data) {
+    $(".item-block").text("")
+    if (data.list.length>6){
+        data.list.slice(0,7)
+    }
+    var str = '';
+    for (var i = 0; i < data.list.length; i++) {
+        str+='<div class="service-item">' +
+            '                        <div class="item-title">' +
+            '                            <span>'+data.list[i].name+'</span>' +
+            '                            <span>...</span>' +
+            '                            <img src="images/index/icon-hot.png" alt=" " class="hot">' +
+            '                        </div>' +
+            '                        <div class="item-intro">' +
+            '                            '+data.list[i].description+'' +
+            '                        </div>' +
+            '                        <div class="item-price">' +
+            '                            <div class="price-star">' +
+            '                                <img src="images/index/icon-star.png" alt="">' +
+            '                                <img src="images/index/icon-star.png" alt="">' +
+            '                                <img src="images/index/icon-star.png" alt="">' +
+            '                                <img src="images/index/icon-star.png" alt="">' +
+            '                                <img src="images/index/icon-star.png" alt="">' +
+            '                                <span>(231人)</span>' +
+            '                            </div>' +
+            '                            <div class="price">' +
+            '                                <span>¥:</span><span>'+data.list[i].price+'元</span>' +
+            '                            </div>' +
+            '                        </div>' +
+            '                    </div>'
+    }
+    $('.item-block').append(str)
 }

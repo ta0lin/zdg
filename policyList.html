@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/policyList.css">
-    <link rel="stylesheet" href="css/zxf_page.css">
+<!--    <link rel="stylesheet" href="css/zxf_page.css">-->
+    <link rel="stylesheet" href="css/pagination.css">
 </head>
 <body>
 <div class="policy-container">
@@ -349,7 +350,7 @@
                     <th>申报条件</th>
                 </tr>
                 </thead>
-                <tbody ID="policttable">
+                <tbody id="policttable">
                 </tbody>
             </table>
             <div class="zxf_pagediv"></div>
@@ -414,19 +415,21 @@
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/zxf_page.js"></script>
 <script src="js/mutual.js"></script>
 <script src="js/coco-message.js"></script>
 <script src="js/common.js"></script>
+<script src="js/pagination.js"></script>
+<script src="js/coco-message.js"></script>
+
 <script>
-    var val =  decodeURI(GetQueryString("search"));
-    console.log(val);
+    var val =  GetQueryString("search");
+    console.log(decodeURIComponent(val));
     var params = {
         url: '/zhengce/list',
         data: {
             'pageNo': 1,
             'pageSize': 10,
-            'keyword': val==''?'高企':val,
+            'keyword': decodeURIComponent(val)==''?'高企':decodeURIComponent(val),
             'condition': '{"searchScope":7}'
         },
         type: 'get',

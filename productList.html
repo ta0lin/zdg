@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/productList.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/zxf_page.css">
+    <link rel="stylesheet" href="css/pagination.css">
 </head>
 <body>
 <div class="productList-container">
@@ -249,9 +249,12 @@
     </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/zxf_page.js"></script>
+<script src="js/pagination.js"></script>
 <script src="js/mutual.js"></script>
+<script src="js/coco-message.js"></script>
+
 <script>
+    sessionStorage.setItem('li',1)
     var p = {
         url: '/product/category',
         data: {
