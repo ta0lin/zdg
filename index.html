@@ -139,15 +139,15 @@
         <div class="banner-search">
             <div class="search-nav">
                 <ul>
-                    <li>全部</li>
-                    <li>查政策</li>
-                    <li>查企业</li>
-                    <li>查商标</li>
+<!--                    <li data-id="">全部</li>-->
+                    <li data-id="1" class="active">查政策</li>
+                    <li data-id="2">查企业</li>
+                    <li data-id="3">查商标</li>
                 </ul>
             </div>
             <div class="search-input">
-                <input type="text">
-                <button>
+                <input type="text" id="search">
+                <button onclick="search()">
                     <img src="images/index/search.png" alt="">
                 </button>
             </div>
@@ -762,11 +762,48 @@
         </div>
     </div>
 </div>
+<script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/echart3.js"></script>
 <script src="js/echarts-wordcloud.js"></script>
 <script src="js/echarts.min.js"></script>
 <script src="js/china.js"></script>
 <script src="js/cloud.js"></script>
 <script src="js/init.js"></script>
+<script src="js/mutual.js"></script>
+<script>
+    // function selectdata(id){
+    //     var params = {
+    //         url: '/product/goods',
+    //         data: {
+    //             'parentId':id,
+    //             'pageNo':1,
+    //             'pageSize':10
+    //         },
+    //         type: 'get',
+    //         contentType: 'application/json;charset=utf-8',
+    //         callback: selectListindex,
+    //         async: true
+    //     }
+    //     ajax(params);
+    // }
+    // selectdata(1)
+    $(".search-nav").on('click','li',function (){
+        $(this).addClass('active').siblings().removeClass("active");
+    })
+    function search(){
+       var index = $(".active").data('id');
+       var val = $("#search").val();
+       if (index == 1) {
+           window.location.href=encodeURI(encodeURI('/zdg/policyList.html?search='+val+''));
+       }
+       else if(index == 2){
+           window.location.href=encodeURI(encodeURI('/zdg/qiyeList.html?search='+val+''));
+       }
+       else{
+           window.location.href=encodeURI(encodeURI('/zdg/shangbiaoList.html?search='+val+''));
+       }
+
+    }
+</script>
 </body>
 </html>

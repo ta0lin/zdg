@@ -25,6 +25,7 @@
     font-weight: bold;
     color: #FFFFFF;
     margin-right: 62px;
+    cursor: pointer;
 }
 
 .search-nav ul li:nth-child(1){
@@ -608,4 +609,9 @@
     visibility: hidden;
     overflow: hidden;
     clear: both;
+}
+.active{
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    box-sizing: border-box;
 }

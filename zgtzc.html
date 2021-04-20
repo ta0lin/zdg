@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="css/reset.css">-->
+<!--    <link rel="stylesheet" href="css/common.css">-->
+    <link rel="stylesheet" href="css/zc.css">
+    <link rel="stylesheet" href="css/zxf_page.css">
+</head>
+<body>
+<input type="text" placeholder="请输入您要查询的内容" class="search" id="search">
+<button onclick="serach()">查询</button>
+<div class="policy-content">
+    <table>
+        <thead>
+        <tr>
+            <th>项目名称</th>
+            <th>受理部门</th>
+            <th>地区</th>
+            <th>申报时间</th>
+            <th>申报条件</th>
+        </tr>
+        </thead>
+        <tbody id="policttable">
+        </tbody>
+    </table>
+    <div class="zxf_pagediv"></div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/zxf_page.js"></script>
+<script src="js/mutual.js"></script>
+<script>
+    var params = {
+        url: '/zhengce/list',
+        data: {
+            'pageNo': 1,
+            'pageSize': 10,
+            'keyword': '高企',
+            'condition': '{"searchScope":7}'
+        },
+        type: 'get',
+        contentType: 'application/json;charset=utf-8',
+        callback: selectZGTZC,
+        async: true
+    }
+    ajax(params);
+    function serach(){
+        console.log(33333);
+        params.data.keyword = $("#search").val()
+        ajax(params);
+    }
+</script>
+</body>
+</html>

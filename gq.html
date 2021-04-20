@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <link rel="stylesheet" href="css/reset.css">-->
+    <!--    <link rel="stylesheet" href="css/common.css">-->
+    <link rel="stylesheet" href="css/gq.css">
+    <link rel="stylesheet" href="css/zxf_page.css">
+</head>
+<body>
+<input type="text" placeholder="请输入您要查询的内容" class="search" id="search">
+<button onclick="serach()">查询</button>
+<div class="policy-content">
+    <table>
+        <thead>
+        <tr>
+            <th>地区</th>
+            <th>年份</th>
+            <th>名称</th>
+            <th>类型</th>
+            <th>证书编号</th>
+            <th>地址</th>
+            <th>经营范围</th>
+        </tr>
+        </thead>
+        <tbody id="policttable">
+        </tbody>
+    </table>
+    <div class="zxf_pagediv"></div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/zxf_page.js"></script>
+<script src="js/mutual.js"></script>
+<script>
+    function serach(){
+        selectdata($("#search").val())
+    }
+    function selectdata(data){
+        var params = {
+            url: '/qiye/list',
+            data: {
+                'pageNo': 1,
+                'pageSize': 10,
+                'keyword': data,
+                'condition': '{"searchScope":1}'
+            },
+            type: 'get',
+            contentType: 'application/json;charset=utf-8',
+            callback: selectzgtQY,
+            async: true
+        }
+        ajax(params);
+    }
+    selectdata('公司')
+</script>
+</body>
+</html>

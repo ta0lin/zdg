@@ -156,42 +156,56 @@
                     <img src="images/detail/logo1.png" alt="">
                     <img src="images/detail/logo2.png" alt="">
                 </div>
-                <ul>
-                    <li>申请号</li>
-                    <li>22144375</li>
-                    <li>申请日期</li>
-                    <li>2016/12/05</li>
-                    <li>注册公告期号</li>
-                    <li>--</li>
-                    <li>初审公告日期</li>
-                    <li>--</li>
-                    <li>初审公告日期</li>
-                    <li>--</li>
-                    <li>初审公告日期</li>
-                    <li>--</li>
-                    <li>类别</li>
-                    <li>35类广告、销售、商业服务</li>
-                    <li>申请人名称（中文）</li>
-                    <li>广州阿斯顿建材有限公司</li>
-                    <li>申请人名称</li>
-                    <li>--</li>
-                    <li>优先权日期</li>
-                    <li>--</li>
-                    <li>后期指定日期</li>
-                    <li>--</li>
-                    <li>国际注册日期</li>
-                    <li>--</li>
-                    <li>专用权期限</li>
-                    <li>--</li>
-                    <li>代理人名称</li>
-                    <li>上海嘉京商务咨询有限公司</li>
-                    <li>是否共有商标</li>
-                    <li>否</li>
-                    <li>申请人地址（中文）</li>
-                    <li>广东省广州市增城</li>
-                    <li>申请人地址（英文）</li>
-                    <li>--</li>
-                </ul>
+                <table>
+                    <tr class="ul">
+                        <td class="li">申请号</td>
+                        <td class="li sqnum"></td>
+                        <td class="li">申请日期</td>
+                        <td class="li sqdate"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">注册公告期号</td>
+                        <td class="li zcgq"></td>
+                        <td class="li">初审公告日期</td>
+                        <td class="li sqgq"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">初审公告日期</td>
+                        <td class="li csgg"></td>
+                        <td class="li">初审公告日期</td>
+                        <td class="li csgg"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">类别</td>
+                        <td class="li types"></td>
+                        <td class="li">申请人名称（中文）</td>
+                        <td class="li sqrc"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">优先权日期</td>
+                        <td class="li yxq"></td>
+                        <td class="li">后期指定日期</td>
+                        <td class="li hq"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">国际注册日期</td>
+                        <td class="li gj"></td>
+                        <td class="li">专用权期限</td>
+                        <td class="li zy"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">代理人名称</td>
+                        <td class="li dlr"></td>
+                        <td class="li sb">是否共有商标</td>
+                        <td class="li"></td>
+                    </tr>
+                    <tr class="ul">
+                        <td class="li">申请人地址（中文）</td>
+                        <td class="li sqaddress"></td>
+                        <td class="li">申请人地址（英文）</td>
+                        <td class="li sqaddresse"></td>
+                    </tr>
+                </table>
             </div>
         </div>
         <div class="base-info ">
@@ -201,7 +215,7 @@
             </div>
             <div class="base-info-content base-info-content1">
                 <div class="pic-info">
-                    暂无商品/服务项目
+<!--                    暂无商品/服务项目-->
                 </div>
             </div>
         </div>
@@ -212,12 +226,12 @@
             </div>
             <div class="base-info-content base-info-content1">
                 <div class="pic-info">
-                    <div>
-                        <span></span><span>2017/01/17        等待受理通知书发文</span>
-                    </div>
-                    <div>
-                        <span></span><span>2017/01/17        等待受理通知书发文</span>
-                    </div>
+<!--                    <div>-->
+<!--                        <span></span><span>2017/01/17        等待受理通知书发文</span>-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <span></span><span>2017/01/17        等待受理通知书发文</span>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -228,12 +242,12 @@
             </div>
             <div class="base-info-content base-info-content1">
                 <div class="pic-info">
-                    <div>
-                        初审公告
-                    </div>
-                    <div>
-                        注册公告
-                    </div>
+<!--                    <div>-->
+<!--                        初审公告-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        注册公告-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
@@ -295,5 +309,27 @@
         </div>
     </div>
 </div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/mutual.js"></script>
+<script>
+    var ftmid = GetQueryString("ftmid");
+    function selectdata(){
+        var params = {
+            url: '/shangbiao/info',
+            data: {
+                'pageNo': 1,
+                'pageSize': 10,
+                'ftmid': ftmid,
+            },
+            type: 'get',
+            contentType: 'application/json;charset=utf-8',
+            callback: selectSBDetail,
+            async: true
+        }
+        ajax(params);
+    }
+    selectdata()
+</script>
 </body>
 </html>

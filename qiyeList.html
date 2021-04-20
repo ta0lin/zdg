@@ -142,12 +142,17 @@
     <div class="search-block">
         <div class="search-container">
             <div class="search-input">
-                <select name="" id="">
-                    <option value="1">查企业</option>
-                </select>
-                <input type="text" placeholder="请输入您想搜索的内容关键词">
-                <button>
-                    <img src="images/index/search.png" alt="">
+                <div class="select" tabindex="1">
+                    <input class="selectopt" name="test" type="radio" id="opt1" checked value="1">
+                    <label for="opt1" class="option">查企业</label>
+                    <input class="selectopt" name="test" type="radio" id="opt2" value="2">
+                    <label for="opt2" class="option">查政策</label>
+                    <input class="selectopt" name="test" type="radio" id="opt3" value="3">
+                    <label for="opt3" class="option">查商标</label>
+                </div>
+                <input type="text" placeholder="请输入您想搜索的内容关键词" id="selectbar">
+                <button onclick="select()">
+                    <img src="images/index/search.png" alt="" >
                 </button>
             </div>
             <div class="hot-search">
@@ -165,11 +170,11 @@
     <div class="bread-container">
         <div class="bread">
             <div class="bread-block">
-                <span>首页</span><label> > </label><span>政策列表</span><label> > </label><span>上海</span>
+<!--                <span>首页</span><label> > </label><span>政策列表</span><label> > </label><span>上海</span>-->
             </div>
             <div class="result">
-                <span>共 <label for="">400</label>个作品</span>
-                <button>收起筛选</button>
+                <span>共 <label for="" id="count">400</label>个作品</span>
+<!--                <button>收起筛选</button>-->
             </div>
         </div>
     </div>
@@ -252,294 +257,55 @@
 <!--            </ul>-->
 <!--        </div>-->
         <div class="policy-content">
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="qiye-item">
-                <div class="info-left">
-                    <a href="detail2.html">
-                    <img src="images/productDetail/pic1.png" alt="" class="pic01">
-                    </a>
-                    <img src="images/detail/super.png" alt="" class="pic02">
-                    <div class="info-left-text">超级认证</div>
-                    <div class="left-ll">
-                        浏览量：2万+
-                    </div>
-                </div>
-                <div class="info-right">
-                    <div class="info-top">
-                        <div class="info-title">
-                            <div class="titles">
-                                <a href="detail2.html">
-                                小米科技有限责任公司
-                                </a>
-                            </div>
-                            <div class="other-info">
-                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img
-                                    src="images/detail/down02.png" alt=""></span>
-                            </div>
-                        </div>
-                        <div class="down">
-                            <button>
-                                <img src="images/detail/down.png" alt="">
-                                下载企业报告
-                            </button>
-                        </div>
-                    </div>
-                    <div class="info-bottom">
-                        <div class="text">
-                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>
-                        </div>
-                        <div class="text">
-                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>
-                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>
-                        </div>
-                        <div class="text">
-                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>
-                            <label for="">
-                                更多
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="contents"></div>
+<!--            <div class="qiye-item">-->
+<!--                <div class="info-left">-->
+<!--                    <a href="detail2.html">-->
+<!--                    <img src="images/productDetail/pic1.png" alt="" class="pic01">-->
+<!--                    </a>-->
+<!--                    <img src="images/detail/super.png" alt="" class="pic02">-->
+<!--                    <div class="info-left-text">超级认证</div>-->
+<!--                    <div class="left-ll">-->
+<!--                        浏览量：2万+-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="info-right">-->
+<!--                    <div class="info-top">-->
+<!--                        <div class="info-title">-->
+<!--                            <div class="titles">-->
+<!--                                <a href="detail2.html">-->
+<!--                                小米科技有限责任公司-->
+<!--                                </a>-->
+<!--                            </div>-->
+<!--                            <div class="other-info">-->
+<!--                                <span>高新技术企业 <img src="images/detail/down01.png" alt=""></span><span>上市 <img-->
+<!--                                    src="images/detail/down02.png" alt=""></span>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="down">-->
+<!--                            <button>-->
+<!--                                <img src="images/detail/down.png" alt="">-->
+<!--                                下载企业报告-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="info-bottom">-->
+<!--                        <div class="text">-->
+<!--                            <span>法定代表人：</span><span>雷军</span><span>注册资本：</span><span>185000万人民币</span>-->
+<!--                        </div>-->
+<!--                        <div class="text">-->
+<!--                            <span>联系电话：</span><span>60606666-1000</span><span>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</span><span>chenchongwei@xiaomi.com</span>-->
+<!--                            <span style="margin-left: 70px;width:60px;">网址：</span><span> www.mi.com</span>-->
+<!--                        </div>-->
+<!--                        <div class="text">-->
+<!--                            <span>企业地址：</span><span style="width:760px">北京市海淀区清河中街68号华润五彩城购物中心二期13层北京市海淀区清河中街68号华润五彩城购物中心二期13层</span>-->
+<!--                            <label for="">-->
+<!--                                更多-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="zxf_pagediv"></div>
         </div>
 
@@ -603,15 +369,38 @@
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/zxf_page.js"></script>
+<script src="js/mutual.js"></script>
 <script>
-    $(".zxf_pagediv").createPage({
-        pageNum: 20,
-        current: 6,
-        num: 50,
-        backfun: function (e) {
-            //console.log(e);//回调
+    var val =  GetQueryString("search");
+    function select(){
+        selectdata($("#selectbar").val()==''?'公司':$("#selectbar").val())
+    }
+    function selectdata(data){
+        var params = {
+            url: '/qiye/list',
+            data: {
+                'pageNo': 1,
+                'pageSize': 10,
+                'keyword': data,
+                'condition': '{"searchScope":1}'
+            },
+            type: 'get',
+            contentType: 'application/json;charset=utf-8',
+            callback: selectQY,
+            async: true
         }
-    });
+        ajax(params);
+    }
+    selectdata(val==''?'公司':val)
+    $('input[name="test"]').change(function () {
+        console.log($(this).val());
+        if ($(this).val()==2){
+            window.location.href="/zdg/policyList.html"
+        }
+        else{
+            window.location.href="/zdg/shangbiaoList.html"
+        }
+    })
 </script>
 </body>
 </html>

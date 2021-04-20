@@ -1,0 +1,69 @@
+body{
+    background: #ffffff;
+    padding:30px;
+    box-sizing: border-box;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 30px;
+}
+div.zxf_pagediv{
+    padding: 0!important;
+    margin-top: 20px;
+}
+.search {
+    width: 200px;
+    height: 40px;
+    box-sizing: border-box;
+}
+button{
+    width: 60px;
+    height: 40px;
+    background: #2FB6EB;
+    border: none;
+    color: #fff;
+    cursor:pointer
+}
+.policy-content table tr th{
+    text-align: center;
+    background: #F5F5F5;
+    padding:15px 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: NotoSansHans-Medium, NotoSansHans;
+    color: #495165;
+    border:1px solid #dddddd;
+}
+.policy-content table tr td{
+    padding:15px 0px;
+    border:1px solid #dddddd;
+    font-size: 16px;
+    font-family: NotoSansHans-Medium, NotoSansHans;
+    color: #495165;
+    text-align: center;
+}
+.policy-content table tr th:nth-child(1),.policy-content table tr td:nth-child(1){
+    width:10%;
+}
+.policy-content table tr th:nth-child(2),.policy-content table tr td:nth-child(2){
+    width:10%;
+}
+.policy-content table tr th:nth-child(3),.policy-content table tr td:nth-child(3){
+    width:16%;
+}
+.policy-content table tr th:nth-child(4),.policy-content table tr td:nth-child(5){
+    width:16%;
+}
+.policy-content table tr th:nth-child(5),.policy-content table tr td:nth-child(5){
+    width:16%;
+}
+.policy-content table tr th:nth-child(6),.policy-content table tr td:nth-child(6){
+    width:16%;
+}
+.policy-content table tr th:nth-child(6),.policy-content table tr td:nth-child(6){
+    width:16%;
+}
+img{
+    width: 100%;
+}

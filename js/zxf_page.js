@@ -11,10 +11,10 @@
 				obj.empty();
 				/*上一页*/
 				obj.append('<span>'+'共'+'<b>'+pageinit.num+'</b>'+'条'+'</span>');
-				obj.append('<select>' +
-					'<option>100条/页</option>' +
-					'<option>50条/页</option>' +
-					'<option>10条/页</option>' +
+				obj.append('<select value="'+pageinit.select+'">' +
+					'<option value="1">100条/页</option>' +
+					'<option value="2">50条/页</option>' +
+					'<option value="3">10条/页</option>' +
 					'</select>')
 				if (pageinit.current > 1) {
 					obj.append('<a href="javascript:;" class="prebtn"><</a>');
@@ -33,7 +33,7 @@
 				}else if(pageinit.current >4 && pageinit.current > pageinit.pageNum-5){
 					var start  = pageinit.pageNum - 4,end = pageinit.pageNum;
 				}else{
-					var start = 1,end = 9;
+					var start = 1,end = pageinit.num/pageinit.pageNum;
 				}
 				for (;start <= end;start++) {
 					if (start <= pageinit.pageNum && start >=1) {
@@ -57,7 +57,7 @@
 					obj.append('<a href="javascript:;" class="nextbtn">></a>');
 				}
 				/*尾部*/
-				obj.append('<span>'+'到第'+'<input type="number" class="zxfinput" value="5"/>'+'页'+'</span>');
+				obj.append('<span>'+'到第'+'<input type="number" class="zxfinput" value=""/>'+'页'+'</span>');
 				obj.append('<span class="zxfokbtn">'+'跳转'+'</span>');
 			}());
 		},
@@ -100,9 +100,10 @@
 	}
 	$.fn.createPage = function(options){
 		var pageinit = $.extend({
-			pageNum : 15,
+			pageNum : 10,
 			current : 1,
 			num:50,
+			select:3,
 			backfun : function(){}
 		},options);
 		zp.init(this,pageinit);

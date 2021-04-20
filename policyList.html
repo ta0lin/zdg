@@ -142,11 +142,16 @@
     <div class="search-block">
         <div class="search-container">
             <div class="search-input">
-                <select name="" id="">
-                    <option value="1">查企业</option>
-                </select>
-                <input type="text" placeholder="请输入您想搜索的内容关键词">
-                <button>
+                <div class="select" tabindex="1">
+                    <input class="selectopt" name="test" type="radio" id="opt1" value="1" checked>
+                    <label for="opt1" class="option">查政策</label>
+                    <input class="selectopt" name="test" type="radio" id="opt2" value="2">
+                    <label for="opt2" class="option">查企业</label>
+                    <input class="selectopt" name="test" type="radio" id="opt3" value="3">
+                    <label for="opt3" class="option">查商标</label>
+                </div>
+                <input type="text" placeholder="请输入您想搜索的内容关键词" id="search">
+                <button onclick="search()">
                     <img src="images/index/search.png" alt="">
                 </button>
             </div>
@@ -166,172 +171,172 @@
     </div>
     <div class="bread-container">
         <div class="bread">
-            <div class="bread-block">
-            <span>首页</span><label> > </label><span>政策列表</span><label> > </label><span>上海</span>
-            </div>
+<!--            <div class="bread-block">-->
+<!--                <span>首页</span><label> > </label><span>政策列表</span><label> > </label><span>上海</span>-->
+<!--            </div>-->
             <div class="result">
-                <span>共 <label for="">400</label>个作品</span>
-                <button>收起筛选</button>
+                <span>共 <label for="" class="zccount"></label>个作品</span>
+<!--                <button>收起筛选</button>-->
             </div>
         </div>
     </div>
     <div class="main-product">
-<!--        <div class="policy-select-block">-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">省份选择：</li>-->
-<!--                <a class="loadMore" href="javascript:;">-->
-<!--                    展开-->
-<!--                    <img src="images/down.png" alt="">-->
-<!--                </a>-->
-<!--                <li class="choosedCity">-->
-<!--                    <img src="images/policyList/position.png" alt=""><span>广东广州</span><span>330</span><span>项政策奖励</span>-->
-<!--                </li>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">技术领域：-->
-<!--                    <a class="loadMore" href="javascript:;">-->
-<!--                        展开-->
-<!--                        <img src="images/down.png" alt="">-->
-<!--                    </a></li>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">技术领域：-->
-<!--                    <a class="loadMore" href="javascript:;">-->
-<!--                        展开-->
-<!--                        <img src="images/down.png" alt="">-->
-<!--                    </a></li>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
+        <!--        <div class="policy-select-block">-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">省份选择：</li>-->
+        <!--                <a class="loadMore" href="javascript:;">-->
+        <!--                    展开-->
+        <!--                    <img src="images/down.png" alt="">-->
+        <!--                </a>-->
+        <!--                <li class="choosedCity">-->
+        <!--                    <img src="images/policyList/position.png" alt=""><span>广东广州</span><span>330</span><span>项政策奖励</span>-->
+        <!--                </li>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">技术领域：-->
+        <!--                    <a class="loadMore" href="javascript:;">-->
+        <!--                        展开-->
+        <!--                        <img src="images/down.png" alt="">-->
+        <!--                    </a></li>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">技术领域：-->
+        <!--                    <a class="loadMore" href="javascript:;">-->
+        <!--                        展开-->
+        <!--                        <img src="images/down.png" alt="">-->
+        <!--                    </a></li>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
 
-<!--            </ul>-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">项目类别：-->
-<!--                    <a class="loadMore" href="javascript:;">-->
-<!--                        展开-->
-<!--                        <img src="images/down.png" alt="">-->
-<!--                    </a></li>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">政策状态：</li>-->
-<!--                <a class="loadMore" href="javascript:;">-->
-<!--                    展开-->
-<!--                    <img src="images/down.png" alt="">-->
-<!--                </a>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="clear">-->
-<!--                <li class="choosedTitle">政策级别：</li>-->
-<!--                <a class="loadMore" href="javascript:;">-->
-<!--                    展开-->
-<!--                    <img src="images/down.png" alt="">-->
-<!--                </a>-->
-<!--                <li class="choosedContent">-->
-<!--                    <a class="active" href="">不限</a> <a-->
-<!--                        href="" class=" locationFilter">北京</a> <a-->
-<!--                        href="" class=" locationFilter">天津</a> <a-->
-<!--                        href="" class=" locationFilter">河北</a> <a-->
-<!--                        href="" class=" locationFilter">山西</a> <a-->
-<!--                        href="" class=" locationFilter">内蒙古</a> <a-->
-<!--                        href="" class=" locationFilter">辽宁</a> <a-->
-<!--                        href="" class=" locationFilter">吉林</a> <a-->
-<!--                        href="" class=" locationFilter">黑龙江</a> <a-->
-<!--                        href="" class=" locationFilter">上海</a> <a-->
-<!--                        href="" class=" locationFilter">江苏</a> <a-->
-<!--                        href="" class=" locationFilter">浙江</a> <a-->
-<!--                        href="" class=" locationFilter">安徽</a> <a-->
-<!--                        href="" class=" locationFilter">福建</a> <a-->
-<!--                        href="" class=" locationFilter">江西</a> <a-->
-<!--                        href="" class=" locationFilter">山东</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
+        <!--            </ul>-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">项目类别：-->
+        <!--                    <a class="loadMore" href="javascript:;">-->
+        <!--                        展开-->
+        <!--                        <img src="images/down.png" alt="">-->
+        <!--                    </a></li>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">政策状态：</li>-->
+        <!--                <a class="loadMore" href="javascript:;">-->
+        <!--                    展开-->
+        <!--                    <img src="images/down.png" alt="">-->
+        <!--                </a>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--            <ul class="clear">-->
+        <!--                <li class="choosedTitle">政策级别：</li>-->
+        <!--                <a class="loadMore" href="javascript:;">-->
+        <!--                    展开-->
+        <!--                    <img src="images/down.png" alt="">-->
+        <!--                </a>-->
+        <!--                <li class="choosedContent">-->
+        <!--                    <a class="active" href="">不限</a> <a-->
+        <!--                        href="" class=" locationFilter">北京</a> <a-->
+        <!--                        href="" class=" locationFilter">天津</a> <a-->
+        <!--                        href="" class=" locationFilter">河北</a> <a-->
+        <!--                        href="" class=" locationFilter">山西</a> <a-->
+        <!--                        href="" class=" locationFilter">内蒙古</a> <a-->
+        <!--                        href="" class=" locationFilter">辽宁</a> <a-->
+        <!--                        href="" class=" locationFilter">吉林</a> <a-->
+        <!--                        href="" class=" locationFilter">黑龙江</a> <a-->
+        <!--                        href="" class=" locationFilter">上海</a> <a-->
+        <!--                        href="" class=" locationFilter">江苏</a> <a-->
+        <!--                        href="" class=" locationFilter">浙江</a> <a-->
+        <!--                        href="" class=" locationFilter">安徽</a> <a-->
+        <!--                        href="" class=" locationFilter">福建</a> <a-->
+        <!--                        href="" class=" locationFilter">江西</a> <a-->
+        <!--                        href="" class=" locationFilter">山东</a>-->
+        <!--                </li>-->
+        <!--            </ul>-->
+        <!--        </div>-->
         <div class="policy-content">
             <table>
                 <thead>
@@ -344,87 +349,7 @@
                     <th>申报条件</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>01</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>02</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>03</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>04</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>05</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>06</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>07</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>08</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>09</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td><a href="detail.html">xxxxxxxxxx</a></td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                    <td>xxxxxxxxxx</td>
-                </tr>
+                <tbody ID="policttable">
                 </tbody>
             </table>
             <div class="zxf_pagediv"></div>
@@ -490,15 +415,38 @@
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/zxf_page.js"></script>
+<script src="js/mutual.js"></script>
+<script src="js/coco-message.js"></script>
+<script src="js/common.js"></script>
 <script>
-    $(".zxf_pagediv").createPage({
-        pageNum: 20,
-        current: 6,
-        num: 50,
-        backfun: function (e) {
-            //console.log(e);//回调
+    var val =  decodeURI(GetQueryString("search"));
+    console.log(val);
+    var params = {
+        url: '/zhengce/list',
+        data: {
+            'pageNo': 1,
+            'pageSize': 10,
+            'keyword': val==''?'高企':val,
+            'condition': '{"searchScope":7}'
+        },
+        type: 'get',
+        contentType: 'application/json;charset=utf-8',
+        callback: selectZC,
+        async: true
+    }
+    ajax(params);
+    function search(){
+        params.data.keyword = $("#search").val()==''?'高企':$("#search").val();
+        ajax(params);
+    }
+    $('input[name="test"]').change(function () {
+        if ($(this).val()==2){
+            window.location.href="/zdg/qiyeList.html"
         }
-    });
+        else{
+            window.location.href="/zdg/shangbiaoList.html"
+        }
+    })
 </script>
 </body>
 </html>
