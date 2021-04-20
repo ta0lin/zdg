@@ -353,7 +353,8 @@ table tr th:nth-child(6), table tr td:nth-child(6) {
     background: transparent;
     border:1px solid #2FB6EB;
     border-radius: 6px;
-    color:#2FB6EB
+    color:#2FB6EB;
+    cursor: pointer;
 }
 .down img{
     vertical-align: middle;

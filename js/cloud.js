@@ -1,17 +1,11 @@
 var myChart = echarts3.init(document.getElementById('wordcloud_echarts'));
 var keywords = [
-    {"name":"起臂机待保养","value":2.64},
-    {"name":"起臂机待保养","value":1.03},
-    {"name":"起臂机待保养","value":24.95},
-    {"name":"起臂机待保养","value":4.04},
-    {"name":"起臂机待保养","value":5.27},
-    {"name":"起臂机待保养","value":7.80},
-    {"name":"起臂机待保养","value":3.09},
-    {"name":"起臂机待保养","value":24.71},
-    {"name":"起臂机待保养","value":6.33},
-    {"name":"起臂机待保养","value":2.55},
-    {"name":"起臂机待保养","value":8.88},
-    {"name":"起臂机待保养","value":0.04},
+    {"name":"高新技术企业","value":10.64},
+    {"name":"小巨人","value":1.03},
+    {"name":"专精特新","value":24.95},
+    {"name":"科技企业孵化器备案","value":13.04},
+    {"name":"小额贷款公司奖补","value":5.27},
+    {"name":"科技计划项目奖励","value":7.80},
 ]
 var option = {
     series: [{

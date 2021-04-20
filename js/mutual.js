@@ -20,8 +20,7 @@ function ajax(params) {
             } else {
                 result = response.object;
             }
-        }
-        else{
+        } else {
             cocoMessage.error("网络异常！", 2000);
         }
     }).fail(function (jqXHR, textStatus, err) {
@@ -58,21 +57,21 @@ function selectZC(data) {
         jumper: true,
         singlePageHide: false,
         disabled: true,
-        currentChange: function(index) {
-                    var params = {
-                        url: '/zhengce/list',
-                        data: {
-                            'pageNo': index,
-                            'pageSize': 10,
-                            'keyword': $("#search").val() == '' ? decodeURIComponent(GetQueryString("search")) == '' ? '高企' : decodeURIComponent(GetQueryString("search")) : $("#search").val(),
-                            'condition': '{"searchScope":7}'
-                        },
-                        type: 'get',
-                        contentType: 'application/json;charset=utf-8',
-                        callback: selectZC,
-                        async: true
-                    }
-                    ajax(params);
+        currentChange: function (index) {
+            var params = {
+                url: '/zhengce/list',
+                data: {
+                    'pageNo': index,
+                    'pageSize': 10,
+                    'keyword': $("#search").val() == '' ? decodeURIComponent(GetQueryString("search")) == '' ? '高企' : decodeURIComponent(GetQueryString("search")) : $("#search").val(),
+                    'condition': '{"searchScope":7}'
+                },
+                type: 'get',
+                contentType: 'application/json;charset=utf-8',
+                callback: selectZC,
+                async: true
+            }
+            ajax(params);
         }
     });
     $("#policttable").append(str)
@@ -118,10 +117,10 @@ function selectQY(data) {
         }
         str += '                        </div>' +
             '                        <div class="down">' +
-            '                            <button>' +
+            '                            <a href="http://www.zhiduogang.com/pdf/qy.pdf"><button>' +
             '                                <img src="images/detail/down.png" alt="">' +
             '                                下载企业报告' +
-            '                            </button>' +
+            '                            </button></a>' +
             '                        </div>' +
             '                    </div>' +
             '                    <div class="info-bottom">' +
@@ -158,7 +157,7 @@ function selectQY(data) {
         jumper: true,
         singlePageHide: false,
         disabled: true,
-        currentChange: function(index) {
+        currentChange: function (index) {
             var params = {
                 url: '/qiye/list',
                 data: {
@@ -242,13 +241,13 @@ function selectQYzz(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
-                var p ={
+            currentChange: function (index) {
+                var p = {
                     url: '/qiye/qualifications',
                     data: {
                         'entId': GetQueryString("id"),
-                        'pageNo':index,
-                        'pageSize':10
+                        'pageNo': index,
+                        'pageSize': 10
                     },
                     type: 'get',
                     contentType: 'application/json;charset=utf-8',
@@ -289,7 +288,7 @@ function selectQYsb(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/brand',
                     data: {
@@ -332,7 +331,7 @@ function selectQYzl(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/patent',
                     data: {
@@ -378,7 +377,7 @@ function selectQYrj(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/softCopyRight',
                     data: {
@@ -422,7 +421,7 @@ function selectproduct(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/productCopyRight',
                     data: {
@@ -465,7 +464,7 @@ function investment(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/investment',
                     data: {
@@ -509,7 +508,7 @@ function financing(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/qiye/financing',
                     data: {
@@ -577,7 +576,7 @@ function selectSB(data) {
         jumper: true,
         singlePageHide: false,
         disabled: true,
-        currentChange: function(index) {
+        currentChange: function (index) {
             var params = {
                 url: '/shangbiao/list',
                 data: {
@@ -602,18 +601,19 @@ function selectList(data) {
         $(".plist").text('')
         $('.nodata').hide();
         var str = '';
-        console.log(sessionStorage.getItem('li'), '666')
         for (var i = 0; i < data.list.length; i++) {
             str += '<li>';
             if (sessionStorage.getItem('li') == 1) {
                 str += '<a href="productDetail.html?id=' + data.list[i].id + '">';
+                str += '                    <img class="head" src="images/productList/01.png" alt="">'
             } else if (sessionStorage.getItem('li') == 2) {
                 str += '<a href="zhuanliDetail.html?id=' + data.list[i].id + '">';
+                str += '                    <img class="head" src="images/productList/02.png" alt="">'
             } else {
                 str += '<a href="banquanDetail.html?id=' + data.list[i].id + '">';
+                str += '                    <img class="head" src="images/productList/03.png" alt="">'
             }
-            str += '                    <img class="head" src="images/productDetail/zc.png" alt="">' +
-                '                    </a>' +
+            str+=    '                    </a>' +
                 '                    <div class="txt-wrap">';
             if (sessionStorage.getItem('li') == 1) {
                 str += '<p class="ellipsis"><a href="productDetail.html?id=' + data.list[i].id + '">' + data.list[i].name + '</a></p>';
@@ -642,39 +642,17 @@ function selectList(data) {
             jumper: true,
             singlePageHide: false,
             disabled: true,
-            currentChange: function(index) {
+            currentChange: function (index) {
                 var params = {
                     url: '/product/goods',
                     data: {
-                        'parentId':sessionStorage.getItem("li"),
-                        'pageNo':index,
-                        'pageSize':data.pageSize
+                        'parentId': sessionStorage.getItem("li"),
+                        'pageNo': index,
+                        'pageSize': data.pageSize
                     },
                     type: 'get',
                     contentType: 'application/json;charset=utf-8',
                     callback: selectList,
-                    async: true
-                }
-                ajax(params);
-            }
-        });
-
-        $(".zxf_pagediv").createPage({
-            pageNum: data.pageSize,
-            current: data.currPage,
-            num: data.totalCount,
-            select: 3,
-            backfun: function (e) {
-                var params = {
-                    url: '/shangbiao/list',
-                    data: {
-                        'pageNo': e.current,
-                        'pageSize': 10,
-                        'keyword': $("#selectbar").val() == '' ? '公司' : $("#selectbar").val(),
-                    },
-                    type: 'get',
-                    contentType: 'application/json;charset=utf-8',
-                    callback: selectSB,
                     async: true
                 }
                 ajax(params);
@@ -785,7 +763,7 @@ function selectZGTZC(data) {
         jumper: true,
         singlePageHide: false,
         disabled: true,
-        currentChange: function(index) {
+        currentChange: function (index) {
             var params = {
                 url: '/zhengce/list',
                 data: {
@@ -831,13 +809,13 @@ function selectzgtQY(data) {
         jumper: true,
         singlePageHide: false,
         disabled: true,
-        currentChange: function(index) {
+        currentChange: function (index) {
             var params = {
                 url: '/qiye/list',
                 data: {
                     'pageNo': index,
                     'pageSize': 10,
-                    'keyword': $("#search").val()==''?'公司':$("#search").val(),
+                    'keyword': $("#search").val() == '' ? '公司' : $("#search").val(),
                     'condition': '{"searchScope":1}'
                 },
                 type: 'get',
@@ -853,19 +831,23 @@ function selectzgtQY(data) {
 
 function selectListindex(data) {
     $(".item-block").text("")
-    if (data.list.length>6){
-        data.list.slice(0,7)
+    var newdata = []
+    if (data.list.length > 6) {
+        newdata = data.list.slice(0, 6)
+    } else {
+        newdata = data.list
     }
+    console.log(newdata);
     var str = '';
-    for (var i = 0; i < data.list.length; i++) {
-        str+='<div class="service-item">' +
+    for (var i = 0; i < newdata.length; i++) {
+        str += '<div class="service-item">' +
             '                        <div class="item-title">' +
-            '                            <span>'+data.list[i].name+'</span>' +
+            '                            <span>' + newdata[i].name + '</span>' +
             '                            <span>...</span>' +
             '                            <img src="images/index/icon-hot.png" alt=" " class="hot">' +
             '                        </div>' +
             '                        <div class="item-intro">' +
-            '                            '+data.list[i].description+'' +
+            '                            ' + newdata[i].description + '' +
             '                        </div>' +
             '                        <div class="item-price">' +
             '                            <div class="price-star">' +
@@ -877,10 +859,31 @@ function selectListindex(data) {
             '                                <span>(231人)</span>' +
             '                            </div>' +
             '                            <div class="price">' +
-            '                                <span>¥:</span><span>'+data.list[i].price+'元</span>' +
+            '                                <span>¥:</span><span>' + newdata[i].price + '元</span>' +
             '                            </div>' +
             '                        </div>' +
             '                    </div>'
     }
     $('.item-block').append(str)
+}
+
+function selectZCindex(data) {
+    $(".top-content ul").text("")
+    if (data.list.length > 0) {
+        var re = new RegExp("<em>", "g");
+        var re1 = new RegExp("</em>", "g");
+        var str = '';
+        if (data.list.length > 5) {
+            var newdata = data.list.slice(0, 5)
+        }
+        for (var i = 0; i < newdata.length; i++) {
+            str += ' <li>' +
+                ' <img src="images/index/icon-rw.png" alt="">' +
+                ' <span><a href="detail.html?id=' + newdata[i].policyId + '">' + newdata[i].peName.replace(re, "").replace(re1, "") + '</a></span>' +
+                '  </li>'
+        }
+    } else {
+
+    }
+    $(".top-content ul").append(str)
 }
