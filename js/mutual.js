@@ -543,7 +543,7 @@ function selectSB(data) {
             '                        <div class="info-title">' +
             '                            <div class="titles">' +
             '                                <a href="detail1.html?ftmid=' + item.ftmid + '">' +
-            '                                    商标名称：' + item.fdlzz + '' +
+            '                                    商标名称：' + item.ftmchin + '' +
             '                                </a>' +
             '                            </div>' +
             '                        </div>' +
@@ -723,10 +723,13 @@ function searchMenu(data) {
 function selectSBDetail(data) {
     $(".sqnum").text(data.id)
     $(".sqdate").text(data.fSQDATE)
-    $(".zcgq").text(data.fBGQ)
-    $(".csgg").text(data.fGGQ)
+    $(".zcgq").text(data.fGGQ)
+    $(".csgg").text(data.fBGQ)
     $(".types").text(data.fTYPE)
     $(".sqrc").text(data.fSQR1)
+    $(".csggdate").text(data.fZCDATE)
+    $(".pic-info2").text(data.fBZ)
+    $(".pic-info1").text(data.fSYSP)
     // $(".sqre").text(data.)
     // $(".yxq").text(data.)
     // $(".hq").text(data.)

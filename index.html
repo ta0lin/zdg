@@ -155,18 +155,19 @@
             <div class="hot-search">
                 <ul class="h h2">
                     <li>热门企业：</li>
-                    <li>高新技术企业</li>
-                    <li>小巨人认证</li>
-                    <li>税费减免</li>
-                    <li>人才类</li>
-                </ul>
-                <ul class="h h1">
-                    <li>热门政策：</li>
                     <li>小米</li>
                     <li>华为</li>
                     <li>腾讯</li>
                     <li>百度</li>
                     <li>网易</li>
+
+                </ul>
+                <ul class="h h1">
+                    <li>热门政策：</li>
+                    <li>高新技术企业</li>
+                    <li>小巨人认证</li>
+                    <li>税费减免</li>
+                    <li>人才类</li>
                 </ul>
 
                 <ul class="h h3">
@@ -691,13 +692,13 @@
        var index = $(".active").data('id');
        var val = $("#search").val();
        if (index == 1) {
-           window.location.href='/zdg/policyList.html?search='+val+'';
+           window.location.href='/policyList.html?search='+val+'';
        }
        else if(index == 2){
-           window.location.href='/zdg/qiyeList.html?search='+val+'';
+           window.location.href='/qiyeList.html?search='+val+'';
        }
        else{
-           window.location.href='/zdg/shangbiaoList.html?search='+val+'';
+           window.location.href='/shangbiaoList.html?search='+val+'';
        }
 
     }
