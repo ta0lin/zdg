@@ -348,3 +348,20 @@ body {
 .coco-msg-stage{
     z-index: 9999;
 }
+#loading{
+    width: 100%;
+    height:calc(100vh);
+    overflow: hidden;
+    position: fixed;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+#loading img{
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index:88;
+}

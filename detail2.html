@@ -164,8 +164,8 @@
                             src="images/detail/down02.png" alt=""></span>
                     </div>
                 </div>
-                <div class="down">
-                    <a href="http://www.zhiduogang.com/pdf/qy.pdf">
+                <div class="down" onclick="downloadp()">
+                    <a href="javascript:void(0)">
                         <button>
                             <img src="images/detail/down.png" alt="">
                             下载企业报告
@@ -490,6 +490,9 @@
             <img src="images/index/icon-yx.png" alt="">
         </div>
     </div>
+    <div id="loading">
+        <img src="images/loading.gif">
+    </div>
 </div>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/pagination.js"></script>
@@ -499,6 +502,9 @@
 
 <script>
     var id = GetQueryString("id");
+    function downloadp(){
+        download(id)
+    }
     var params = {
         url: '/qiye/info',
         data: {

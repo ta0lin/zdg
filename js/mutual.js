@@ -116,8 +116,8 @@ function selectQY(data) {
             str += '                            </div>';
         }
         str += '                        </div>' +
-            '                        <div class="down">' +
-            '                            <a href="http://www.zhiduogang.com/pdf/qy.pdf"><button>' +
+            '                        <div class="down downpdf" data-id="'+item.id+'">' +
+            '                            <a href="javascript:void(0)" ><button>' +
             '                                <img src="images/detail/down.png" alt="">' +
             '                                下载企业报告' +
             '                            </button></a>' +
@@ -889,4 +889,36 @@ function selectZCindex(data) {
 
     }
     $(".top-content ul").append(str)
+}
+$(".contentsqy").on("click", ".downpdf", function (event) {
+    var id = event.currentTarget.dataset.id;
+    download(id)
+
+});
+function download(params){
+    $("#loading").show();
+    $("body").css('overflow','hidden')
+    $("body").css('height',$(window).height())
+    var p = {
+        url: '/qiye/entExport',
+        data: {
+            'entId': params,
+        },
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+        async: true,
+        callback: downloadpdf,
+    }
+    ajax(p);
+}
+function downloadpdf(data){
+    if (data.filePath!==''){
+        window.location.href=data.filePath
+    }
+    else{
+        cocoMessage.error("该pdf无法下载！", 2000);
+    }
+    $("#loading").hide();
+    $("body").css('overflow','auto')
+    $("body").css('height','100%')
 }
